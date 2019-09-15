@@ -1,0 +1,63 @@
+{
+  "name": "rest-api-nodejs",
+  "version": "1.0.0",
+  "description": "Starter for a flexible and scalable API with Nodejs and Expressjs",
+  "author": "Leonardo B. Castro",
+  "license": "MIT",
+  "main": "src/index.js",
+  "scripts": {
+    "dev": "nodemon --exec babel-node src/index.js --inspect",
+    "start": "babel-node src/index.js",
+    "orm": "npx sequelize",
+    "lint": "eslint .",
+    "test": "NODE_ENV=test jest --colors --testPathIgnorePatterns tests/test.js",
+    "pretest": "node scripts/remove-db-test.js && NODE_ENV=test sequelize db:migrate && NODE_ENV=test sequelize db:seed:all",
+    "posttest": "NODE_ENV=test sequelize db:seed:undo:all && NODE_ENV=test sequelize db:migrate:undo:all",
+    "envs:generate": "babel-node scripts/create-envs.js"
+  },
+  "pre-commit": ["lint", "test"],
+  "jest": {
+    "verbose": true,
+    "bail": 1,
+    "browser": false,
+    "collectCoverageFrom": [
+      "src/**/*.{js}",
+      "!**/node_modules/**"
+    ],
+    "transform": {
+      "^.+\\.js$": "babel-jest"
+    }
+  },
+  "dependencies": {
+    "@babel/core": "^7.5.5",
+    "@babel/node": "^7.5.5",
+    "@babel/plugin-proposal-object-rest-spread": "^7.5.5",
+    "@babel/preset-env": "^7.5.5",
+    "bcrypt": "^3.0.6",
+    "body-parser": "^1.18.2",
+    "cors": "^2.8.5",
+    "dataloader": "^1.4.0",
+    "dotenv": "^8.1.0",
+    "express": "^4.17.1",
+    "express-validator": "^6.1.1",
+    "helmet": "^3.12.1",
+    "jsonwebtoken": "^8.5.1",
+    "moment": "^2.24.0",
+    "pg": "^7.12.1",
+    "redis": "^2.8.0",
+    "sequelize": "^5.16.0"
+  },
+  "devDependencies": {
+    "@babel/polyfill": "^7.4.4",
+    "babel-eslint": "^8.2.6",
+    "babel-jest": "^24.9.0",
+    "eslint": "^4.19.1",
+    "faker": "^4.1.0",
+    "jest": "^24.9.0",
+    "nodemon": "^1.19.1",
+    "redis-mock": "^0.46.0",
+    "sequelize-cli": "^5.5.0",
+    "sqlite3": "^4.1.0",
+    "supertest": "^4.0.2"
+  }
+}
