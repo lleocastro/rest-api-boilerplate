@@ -48,6 +48,9 @@ Starter for a flexible and scalable REST API with Nodejs and Expressjs.
 |   |   ├── └── ...
 |   |   └── ...
 |   ├── src/
+|   |   ├── models/
+|   |   |   ├── index.js
+|   |   |   └── ...
 |   |   ├── services/
 |   |   |   ├── user/
 |   |   |   |   ├── controller.js
