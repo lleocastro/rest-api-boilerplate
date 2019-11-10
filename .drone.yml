@@ -1,0 +1,38 @@
+kind: pipeline
+name: prod-deploy
+
+concurrency:
+  limit: 1
+
+steps:
+  - name: test
+    image: 
+    environment:
+    commands:
+
+  - name: deploy
+    image: 
+    settings:
+      deployment: rest-api
+      container: api
+      kubernetes_server:
+      kubernetes_token:
+        from_secret: 
+      namespace: prod
+      repo: 
+      tag: 
+
+trigger:
+  branch:
+    - master
+  event:
+    - push
+
+---
+
+kind: secret
+name: token-prod
+get:
+  path: drone-secret
+  name: access-key
+
