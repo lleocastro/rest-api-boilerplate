@@ -70,6 +70,7 @@ Starter for a flexible and scalable REST API with Nodejs and Expressjs.
 ├── .eslintrc
 ├── .babelrc
 ├── .editorconfig
+├── nacl.json
 ├── package.json
 ├── package-lock.json
 ├── nodemon.json
